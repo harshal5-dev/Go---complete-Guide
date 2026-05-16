@@ -19,9 +19,10 @@ func main() {
 		fmt.Print("Your choice: ")
 		fmt.Scan(&choice)
 
-		if choice == 1 {
+		switch choice {
+		case 1:
 			fmt.Println("Your account balance is", accountBalance)
-		} else if choice == 2 {
+		case 2:
 			var deposit float64
 			fmt.Print("Your Deposit: ")
 			fmt.Scan(&deposit)
@@ -34,7 +35,7 @@ func main() {
 
 			accountBalance += deposit
 			fmt.Println("Account Balance updated, new balance is", accountBalance)
-		} else if choice == 3 {
+		case 3:
 			var withdraw float64
 			fmt.Print("Your Withdraw: ")
 			fmt.Scan(&withdraw)
@@ -53,11 +54,50 @@ func main() {
 
 			accountBalance -= withdraw
 			fmt.Println("Account Balance updated, new balance is", accountBalance)
-		} else {
+		default:
 			fmt.Println("Goodbye..!")
-			break
+			fmt.Println("Thank you for choosing our bank")
+			return
+			// break
 		}
-	}
 
-	fmt.Println("Thank you for choosing our bank")
+		// if choice == 1 {
+		// 	fmt.Println("Your account balance is", accountBalance)
+		// } else if choice == 2 {
+		// 	var deposit float64
+		// 	fmt.Print("Your Deposit: ")
+		// 	fmt.Scan(&deposit)
+
+		// 	if deposit <= 0 {
+		// 		fmt.Println("Invalid Amount. Must be greater than 0.")
+		// 		// return
+		// 		continue
+		// 	}
+
+		// 	accountBalance += deposit
+		// 	fmt.Println("Account Balance updated, new balance is", accountBalance)
+		// } else if choice == 3 {
+		// 	var withdraw float64
+		// 	fmt.Print("Your Withdraw: ")
+		// 	fmt.Scan(&withdraw)
+
+		// 	if withdraw <= 0 {
+		// 		fmt.Println("Invalid Amount. Must be greater than 0.")
+		// 		// return
+		// 		continue
+		// 	}
+
+		// 	if withdraw > accountBalance {
+		// 		fmt.Println("Invalid Amount. you can't withdraw more than you have.")
+		// 		// return
+		// 		continue
+		// 	}
+
+		// 	accountBalance -= withdraw
+		// 	fmt.Println("Account Balance updated, new balance is", accountBalance)
+		// } else {
+		// 	fmt.Println("Goodbye..!")
+		// 	break
+		// }
+	}
 }
