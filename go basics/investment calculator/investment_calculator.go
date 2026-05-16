@@ -28,5 +28,12 @@ func main() {
 	// fmt.Println("Future Real Value: ", futureRealValue)
 	// fmt.Printf("Future Value: %v\nFuture Real Value: %v\n", futureValue, futureRealValue)
 	// fmt.Printf("Future Value: %.1f\nFuture Real Value: %.1f\n", futureValue, futureRealValue)
+	// fmt.Print(formattedFv, formattedRFV)
+	// fmt.Printf(`Future Value: %.1f
+	// 	Future Real Value: %.1f`, futureValue, futureRealValue)
+	output(formattedFv, formattedRFV)
+}
+
+func output(formattedFv string, formattedRFV string) {
 	fmt.Print(formattedFv, formattedRFV)
 }
