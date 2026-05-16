@@ -22,7 +22,7 @@ func main() {
 
 	// futureValue := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
 	// futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
-	futureValue, futureRealValue := claculateFutureValues(investmentAmount, expectedReturnRate, years)
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, years)
 
 	formattedFv := fmt.Sprintf("Future Value: %.1f\n", futureValue)
 	formattedRFV := fmt.Sprintf("Future Real Value: %.1f\n", futureRealValue)
@@ -45,13 +45,13 @@ func output(formattedFv string, formattedRFV string) {
 	fmt.Print(formattedFv, formattedRFV)
 }
 
-func claculateFutureValues(investmentAmount, expectedReturnRate, years float64) (float64, float64) {
+func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) (float64, float64) {
 	futureValue := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
 	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
 	return futureValue, futureRealValue
 }
 
-// func claculateFutureValues(investmentAmount, expectedReturnRate, years float64) (futureValue float64, futureRealValue float64) {
+// func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) (futureValue float64, futureRealValue float64) {
 // 	futureValue = investmentAmount * math.Pow((1+expectedReturnRate/100), years)
 // 	futureRealValue = futureValue / math.Pow(1+inflationRate/100, years)
 // 	return
