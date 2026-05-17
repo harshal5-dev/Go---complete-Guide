@@ -23,6 +23,37 @@ type Outputtable interface {
 	Displayer
 }
 
+func printSomething(value interface{}) {
+	intVal, ok := value.(int)
+
+	if ok {
+		fmt.Println("Integer:", intVal)
+	}
+
+	flatVal, ok := value.(float64)
+
+	if ok {
+		fmt.Println("Float:", flatVal)
+	}
+
+	stringVal, ok := value.(string)
+
+	if ok {
+		fmt.Println("String:", stringVal)
+	}
+
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("Integer:", value)
+	// case float64:
+	// 	fmt.Println("Float:", value)
+	// case string:
+	// 	fmt.Println("String:", value)
+	// default:
+	// 	fmt.Println(value)
+	// }
+}
+
 // type outputtable interface {
 // 	Save() error
 // 	Display()
@@ -62,6 +93,10 @@ func saveData(data Saver) error {
 }
 
 func main() {
+	printSomething("HI Any value")
+	printSomething(21)
+	printSomething(22.3)
+
 	title, content := getNoteData()
 	todoText := getTodoData()
 
