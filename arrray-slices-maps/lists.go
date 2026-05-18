@@ -20,6 +20,7 @@ func main() {
 	var productNames [4]string = [4]string{"A Book"}
 	prices := [4]float64{10.99, 9.99, 45.99, 20.0}
 	productNames[2] = "A Carpet"
+	discountedPrices := []float64{33.5, 44.5, 12.4}
 
 	fmt.Println("prices:", prices)
 	fmt.Println("product names:", productNames)
@@ -32,6 +33,9 @@ func main() {
 	// featuredPrices := prices[:3]
 	featuredPrices := prices[1:]
 	featuredPrices[0] = 199.99
+
+	featuredPrices = append(featuredPrices, discountedPrices...)
+
 	fmt.Println("featured prices:", featuredPrices)
 	fmt.Println("len, cap:", len(featuredPrices), cap(featuredPrices))
 	fmt.Println("prices:", prices)
