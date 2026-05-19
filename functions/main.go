@@ -3,25 +3,22 @@ package main
 import "fmt"
 
 func main() {
+	numbers := []int{1, 10, 15}
+	sum := sumUp(1, 4, 6, 7, 4, 5)
+	anotherSum := sumUp(11, numbers...)
 
-	fmt.Println(calculateFactorial(5))
-
+	fmt.Println(sum)
+	fmt.Println(anotherSum)
 }
 
-func calculateFactorial(num int) int {
-	if num == 1 {
-		return num
+func sumUp(startingValue int, numbers ...int) int {
+	sum := 0
+
+	fmt.Println("startingValue:", startingValue)
+
+	for _, val := range numbers {
+		sum += val
 	}
 
-	return num * calculateFactorial(num-1)
+	return sum
 }
-
-// func calculateFactorial(num int) int {
-// 	result := 1
-
-// 	for val := 1; val <= num; val++ {
-// 		result *= val
-// 	}
-
-// 	return result
-// }
