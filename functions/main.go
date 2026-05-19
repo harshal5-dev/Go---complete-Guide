@@ -4,28 +4,23 @@ import "fmt"
 
 type transFormFn func(int) int
 
-// type anotherFn func(int, string, []int) int
-
 func main() {
 	numbers := []int{1, 2, 3, 4}
-	otherNumbers := []int{3, 1, 5}
 
-	doubled := transformNumbers(&numbers, double)
-	tripled := transformNumbers(&numbers, triple)
+	transformValue := transformNumbers(&numbers, func(val int) int {
+		return val * 2
+	})
 
-	fmt.Println(doubled)
-	fmt.Println(tripled)
+	fmt.Println("transformValue:", transformValue)
 
-	fmt.Println("------------")
+	doubleFunc := createTransformFunc(2)
+	tripleFunc := createTransformFunc(3)
 
-	tranFormNumberFunc1 := getTransformerFunction(&numbers)
-	tranFormNumberFunc2 := getTransformerFunction(&otherNumbers)
+	double := transformNumbers(&numbers, doubleFunc)
+	triple := transformNumbers(&numbers, tripleFunc)
 
-	doubled1 := transformNumbers(&numbers, tranFormNumberFunc1)
-	tripled2 := transformNumbers(&numbers, tranFormNumberFunc2)
-
-	fmt.Println("doubled1:", doubled1)
-	fmt.Println("tripled2:", tripled2)
+	fmt.Println("double:", double)
+	fmt.Println("triple:", triple)
 }
 
 func transformNumbers(numbers *[]int, transform transFormFn) []int {
@@ -38,18 +33,8 @@ func transformNumbers(numbers *[]int, transform transFormFn) []int {
 	return tNumber
 }
 
-func getTransformerFunction(numbers *[]int) transFormFn {
-	if (*numbers)[0] == 1 {
-		return double
-	} else {
-		return triple
+func createTransformFunc(factor int) func(int) int {
+	return func(number int) int {
+		return number * factor
 	}
-}
-
-func double(number int) int {
-	return number * 2
-}
-
-func triple(number int) int {
-	return number * 3
 }
